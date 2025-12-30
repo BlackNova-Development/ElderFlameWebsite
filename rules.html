@@ -122,6 +122,9 @@ nav a.active{
   border-radius:16px;
   padding:24px;
   border:1px solid rgba(255,255,255,.1);
+  position:sticky;
+  top:120px;
+  height:fit-content;
 }
 
 .rules-sidebar h3{
@@ -145,7 +148,7 @@ nav a.active{
 }
 
 .rules-sidebar li:hover,
-.rules-sidebar li:first-child{
+.rules-sidebar li.active{
   background:rgba(168,85,247,.2);
   color:var(--primary);
   border-left:4px solid var(--primary);
@@ -157,6 +160,8 @@ nav a.active{
   border-radius:16px;
   padding:30px;
   border:1px solid rgba(255,255,255,.1);
+  max-height:calc(100vh - 200px);
+  overflow-y:auto;
 }
 
 .rules-content h1{
@@ -221,6 +226,15 @@ nav a.active{
   font-size:.95rem;
 }
 
+/* ===== CONTENT SECTIONS ===== */
+.content-section{
+  display:none;
+}
+
+.content-section.active{
+  display:block;
+}
+
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
   .rules-container{
@@ -229,10 +243,14 @@ nav a.active{
   
   .rules-sidebar{
     width:100%;
+    position:static;
+    margin-bottom:30px;
   }
   
   .rules-content{
     width:100%;
+    max-height:none;
+    overflow-y:visible;
   }
 }
 
@@ -278,7 +296,7 @@ nav a.active{
         <li><a class="active" href="rules.html">Rules</a></li>
         <li><a href="vote.html">Vote</a></li>
         <li><a href="staff.html">Staff-Team</a></li>
-        <li><a href="store.elderflame.net">Store</a></li>
+        <li><a href="https://store.elderflame.net" target="_blank">Store</a></li>
       </ul>
     </nav>
     <div class="online">API DISCORD</div>
@@ -294,24 +312,168 @@ nav a.active{
     <aside class="rules-sidebar">
       <h3>Rules</h3>
       <ul>
-        <li>Overview</li>
-        <li>Conduct</li>
-        <li>Gameplay</li>
-        <li>Store</li>
-        <li>Policies</li>
+        <li class="sidebar-item active" data-section="overview">Overview</li>
+        <li class="sidebar-item" data-section="conduct">Conduct</li>
+        <li class="sidebar-item" data-section="gameplay">Gameplay</li>
+        <li class="sidebar-item" data-section="store">Store</li>
+        <li class="sidebar-item" data-section="policies">Policies</li>
       </ul>
     </aside>
 
     <div class="rules-content">
       <h1>ELDERFLAME'S RULES</h1>
-      <p>Players are expected to follow all rules to ensure a healthy and enjoyable community.</p>
-
-      <h2>Punishment Policy</h2>
-      <ul>
-        <li>Punishments are handled on a case-by-case basis.</li>
-        <li>Evading punishments is strictly prohibited.</li>
-        <li>Staff decisions are final.</li>
-      </ul>
+      
+      <!-- Overview Section -->
+      <div class="content-section active" id="overview">
+        <p>Here are ElderFlame's rules! Players are encouraged to read and stay up-to-date with our rules to avoid any issues within gameplay or communication between players!</p>
+        
+        <p><strong>Please be aware,</strong></p>
+        <p>These rules are subject to change at any time. ElderFlame staff reserve the right to administer punishments based on any grounds they deem necessary to maintain a healthy and enjoyable community environment.</p>
+        
+        <p>Again, players and community members are encouraged to stay informed about any updates or modifications to the rules.</p>
+        
+        <h2>Punishment Policy</h2>
+        <ul>
+          <li>Punishments are handled on a case-by-case basis, and no two instances of rule-breaking will necessarily receive the same punishment.</li>
+          <li>Previous punishments (including warnings) may be considered when determining consequences, especially if there is a lack of behavioral improvement.</li>
+          <li>Any attempt to evade punishments is strictly against the rules.</li>
+          <li>Staff members reserve the right to administer punishments based on any grounds they deem necessary. If you feel a punishment is made unfairly, make a ticket on our discord to appeal or directly message an admin to report a staff member.</li>
+        </ul>
+        
+        <p><strong>Conversations with other players, regardless of the setting related to the server, are subject to the same rules. This includes:</strong></p>
+        <ul>
+          <li>Direct messages (DMs) between two ElderFlame players.</li>
+          <li>Discord channels created specifically for any Town in-game.</li>
+        </ul>
+      </div>
+      
+      <!-- Conduct Section -->
+      <div class="content-section" id="conduct">
+        <h2>Conduct Rules</h2>
+        <p>All players must follow these conduct guidelines to maintain a respectful and enjoyable environment:</p>
+        <ul>
+          <li>No harassment, bullying, or discriminatory behavior of any kind.</li>
+          <li>No excessive use of offensive language or slurs.</li>
+          <li>No impersonation of staff members or other players.</li>
+          <li>No advertising other servers or services without permission.</li>
+          <li>Respect other players' builds and property.</li>
+        </ul>
+        
+        <h2>Global Chat Guidelines</h2>
+        <ul>
+          <li>Swearing is permitted, provided it is in moderation, without the intent to hurt someone, and not targeted at another player.</li>
+          <li>Do not share your own or others' personal information.</li>
+          <li>Avoid controversial topics in general chat, including harmful substances, triggering experiences, etc.</li>
+          <li>Any form of staff/player impersonation is strictly prohibited.</li>
+          <li>Keep chat appropriate and respectful at all times.</li>
+          <li>Conversations in global chat should be kept in English.</li>
+          <li>Refrain from engaging in conversation that makes any player uncomfortable.</li>
+        </ul>
+      </div>
+      
+      <!-- Gameplay Section -->
+      <div class="content-section" id="gameplay">
+        <h2>Gameplay Rules</h2>
+        <p>Follow these rules to ensure fair and balanced gameplay:</p>
+        <ul>
+          <li>No exploiting bugs or glitches for personal advantage.</li>
+          <li>No use of unauthorized mods, clients, or hacks.</li>
+          <li>No griefing or intentional destruction of other players' property.</li>
+          <li>No stealing from other players or towns.</li>
+          <li>Follow all game-specific rules for each mode (Towny, Skyblock, etc.).</li>
+        </ul>
+        
+        <h2>Construction Guidelines</h2>
+        <ul>
+          <li>No offensive or inappropriate builds.</li>
+          <li>Respect the boundaries of other towns.</li>
+          <li>Avoid constructing within 10 chunks of someone else's build, unless explicit permission has been granted.</li>
+          <li>Prohibition of spider claiming (claiming chunks in an unusual way to cover the most land and prevent others from claiming).</li>
+          <li>Every chunk used for building must be properly claimed.</li>
+          <li>Avoid claiming public, server, or resource spots.</li>
+          <li>Do not take credit for someone else's work.</li>
+          <li>For permanent builds, it is advised to create them in Main Worlds to prevent deletion during Resource World resets.</li>
+          <li>Litematica is allowed for tracing schematics.</li>
+          <li>Easy Place is permissible but only for the purpose of building permanent structures or Mapart. (Printer is not allowed!)</li>
+          <li>Any method utilizing building aids or mods in a way deemed as "exploiting" by staff is strictly prohibited.</li>
+        </ul>
+        
+        <h2>Griefing & Stealing</h2>
+        <p>Griefing or defacing any player's builds without permission is strictly prohibited. This includes, but is not limited to:</p>
+        <ul>
+          <li>Building permanent structures within 10 chunks of another town/claim.</li>
+          <li>Destroying builds within 10 chunks of another town/claim.</li>
+          <li>Defacing unclaimed areas.</li>
+          <li>Not replanting crops of farms not owned by you.</li>
+          <li>Any form of damage to another player's builds without permission.</li>
+          <li>Towns in ruin may not be claimed over unless permission is granted by staff.</li>
+        </ul>
+      </div>
+      
+      <!-- Store Section -->
+      <div class="content-section" id="store">
+        <h2>Store Policies</h2>
+        <p>Our store policies ensure fair transactions and a balanced economy:</p>
+        <ul>
+          <li>All store purchases are final and non-refundable.</li>
+          <li>No sharing, trading, or selling of store ranks or items.</li>
+          <li>Store ranks must be used in accordance with server rules.</li>
+          <li>Any attempt to exploit store mechanics will result in punishment.</li>
+          <li>Store items are subject to balance changes without notice.</li>
+        </ul>
+        
+        <h2>Personalized Tags Guidelines</h2>
+        <p>Personalized Tags must adhere to the following:</p>
+        <ul>
+          <li>Tags must be bold, in lettercase, and may only be one word.</li>
+          <li>No additional effects such as strikethrough, italics, or obfuscated text.</li>
+          <li>A maximum of two RGB colors may be used.</li>
+          <li>Inappropriate or offensive words are forbidden.</li>
+          <li>Event-related terms may be denied.</li>
+          <li>Tags must be unique, anything existing in the server may be denied.</li>
+          <li>Staff retains the right to reject any tag for any reason and can withdraw permission to a previously accepted tag at any time.</li>
+        </ul>
+      </div>
+      
+      <!-- Policies Section -->
+      <div class="content-section" id="policies">
+        <h2>Additional Policies</h2>
+        <p>These additional policies cover various aspects of server operation:</p>
+        <ul>
+          <li>Staff decisions are final and must be respected.</li>
+          <li>Appeals for punishments must be made through proper channels.</li>
+          <li>Players are responsible for their account security.</li>
+          <li>Multiple accounts may be restricted if used to circumvent rules.</li>
+          <li>The server reserves the right to remove any content deemed inappropriate.</li>
+        </ul>
+        
+        <h2>Policy on IRL/Store Trading</h2>
+        <p>To maintain fairness and integrity within ElderFlame, please be aware of the following guidelines regarding real-world trading:</p>
+        <ul>
+          <li>IRL Trading (in-game money/items for real money) is strictly prohibited on ElderFlame.</li>
+          <li>Payments conducted outside of our platforms cannot be tracked or confirmed by us.</li>
+          <li>Trading store items for in-game money or items is permissible as it is trackable and kept within ElderFlame.</li>
+        </ul>
+        
+        <h2>Policy on Scamming</h2>
+        <p>The act of scamming in any form is strictly prohibited. This encompasses, but is not limited to:</p>
+        <ul>
+          <li>Creation of deceptive items meant to imitate valuable items or currency.</li>
+          <li>Taking advantage of new players.</li>
+          <li>Selling goods for an unreasonable amount of money, including listing items at exorbitant prices under the guise of "donation" items.</li>
+          <li>Establishing chest shops that buy items at ridiculously below market value.</li>
+          <li>Exploiting clearly incorrect pricing from a player, such as intentionally leaving a zero off a chest shop price.</li>
+          <li>Failure to fulfill agreements in player-to-player deals, the job must be completed, and the worker must be paid the full agreed-upon amount.</li>
+        </ul>
+        
+        <h2>Reporting Procedures</h2>
+        <ul>
+          <li>Directly report any players breaking rules to staff, providing proof/evidence whenever possible through our discord tickets.</li>
+          <li>If reporting a staff member, please message an admin directly via Discord.</li>
+          <li>Multiple false reports lacking evidence may lead to punitive measures.</li>
+          <li>Avoid creating blank tickets; instead, promptly respond with details regarding your issue.</li>
+        </ul>
+      </div>
     </div>
 
   </div>
@@ -319,7 +481,7 @@ nav a.active{
 
 <footer class="footer">
   <div>MC.ELDERFLAME.NET</div>
-  <div class="sub">© 2025 ElderFlameMC. Not affiliated with Mojang AB.</div>
+  <div class="sub">© 2025 ElderFlame. Not affiliated with Mojang AB.</div>
 </footer>
 
 <script>
@@ -333,6 +495,34 @@ for(let i=0;i<60;i++){
   s.style.animationDelay=Math.random()*3+"s";
   stars.appendChild(s);
 }
+
+// Sidebar navigation functionality
+document.querySelectorAll('.sidebar-item').forEach(item => {
+  item.addEventListener('click', function() {
+    // Remove active class from all items
+    document.querySelectorAll('.sidebar-item').forEach(i => {
+      i.classList.remove('active');
+    });
+    
+    // Add active class to clicked item
+    this.classList.add('active');
+    
+    // Hide all content sections
+    document.querySelectorAll('.content-section').forEach(section => {
+      section.classList.remove('active');
+    });
+    
+    // Show the corresponding content section
+    const sectionId = this.getAttribute('data-section');
+    document.getElementById(sectionId).classList.add('active');
+  });
+});
+
+// Store link functionality
+document.querySelector('nav a[href="https://store.elderflame.net"]').addEventListener('click', function(e) {
+  e.preventDefault();
+  window.open('https://store.elderflame.net', '_blank');
+});
 </script>
 
 </body>
