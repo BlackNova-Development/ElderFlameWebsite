@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ElderFlameMC • Staff</title>
+<title>ElderFlame • Staff</title>
 
 <style>
 :root{
@@ -71,7 +71,7 @@ header{
 }
 
 .logo{
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  font-family:'Comic Sans MS','Comic Sans',cursive;
   font-size:1.8rem;
   font-weight:900;
   color:var(--primary);
@@ -146,9 +146,8 @@ main{ flex:1; }
 }
 
 /* card */
-/* FIX: sacamos translucidez del fondo */
 .staff-member{
-  background:#1c1026; /* sólido */
+  background:#1c1026;
   border-radius:12px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,.12);
@@ -161,14 +160,13 @@ main{ flex:1; }
   border-color:rgba(168,85,247,.45);
 }
 
-/* FIX: sacamos translucidez del contenedor del avatar */
 .staff-avatar{
   width:100%;
   height:160px;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:rgba(255,255,255,.06); /* sólido */
+  background:#140a1c;
 }
 
 .staff-avatar img{
@@ -176,7 +174,7 @@ main{ flex:1; }
   height:120px;
   border-radius:10px;
   image-rendering:pixelated;
-  background:transparent; /* FIX: sin fondo translúcido */
+  background:transparent;
 }
 
 .staff-info{
@@ -212,6 +210,14 @@ main{ flex:1; }
   margin-bottom:6px;
 }
 
+.staff-name-dev a{
+  color:inherit;
+  text-decoration:none;
+}
+.staff-name-dev a:hover{
+  text-shadow:0 0 10px rgba(0,153,255,.55);
+}
+
 .staff-role{
   font-size:.85rem;
   color:rgba(230,217,242,.75);
@@ -233,12 +239,6 @@ main{ flex:1; }
 }
 
 .footer .sub{
-  margin-top:10px;
-  color:#aaa;
-  font-size:.95rem;
-}
-
-.footer .credit{
   margin-top:10px;
   color:#aaa;
   font-size:.95rem;
@@ -280,7 +280,7 @@ main{ flex:1; }
         <li><a href="store.elderflame.net">Store</a></li>
       </ul>
     </nav>
-    <div class="online">234 Users Online</div>
+    <div class="online">API DISCORD</div>
   </div>
 </header>
 
@@ -294,16 +294,17 @@ main{ flex:1; }
       <div class="staff-grid">
         <div class="staff-member">
           <div class="staff-avatar">
-            <img src="img/iKiinGG.png" alt="iKiinGG">
+            <img src="img/Staff-Team/iKiinGG.png" alt="iKiinGG">
           </div>
           <div class="staff-info">
             <div class="staff-name-owner">iKiinGG</div>
             <div class="staff-role">Owner</div>
           </div>
         </div>
+
         <div class="staff-member">
           <div class="staff-avatar">
-            <img src="img/OneMightyArc.png" alt="OneMightyArc">
+            <img src="img/Staff-Team/OneMightyArc.png" alt="OneMightyArc">
           </div>
           <div class="staff-info">
             <div class="staff-name-owner">OneMightyArc</div>
@@ -319,7 +320,7 @@ main{ flex:1; }
       <div class="staff-grid">
         <div class="staff-member">
           <div class="staff-avatar">
-            <img src="img/ImRuxted.png" alt="ImRuxted">
+            <img src="img/Staff-Team/ImRuxted.png" alt="ImRuxted">
           </div>
           <div class="staff-info">
             <div class="staff-name-admin">ImRuxted</div>
@@ -329,7 +330,7 @@ main{ flex:1; }
 
         <div class="staff-member">
           <div class="staff-avatar">
-            <img src="img/NightSlayerr.png" alt="NightSlayerr">
+            <img src="img/Staff-Team/NightSlayerr.png" alt="NightSlayerr">
           </div>
           <div class="staff-info">
             <div class="staff-name-admin">NightSlayerr</div>
@@ -339,7 +340,7 @@ main{ flex:1; }
 
         <div class="staff-member">
           <div class="staff-avatar">
-            <img src="img/fcvsb.png" alt="fcvsb">
+            <img src="img/Staff-Team/fcvsb.png" alt="fcvsb">
           </div>
           <div class="staff-info">
             <div class="staff-name-admin">fcvsb</div>
@@ -349,7 +350,7 @@ main{ flex:1; }
 
         <div class="staff-member">
           <div class="staff-avatar">
-            <img src="img/Midsted_.png" alt="Midsted_">
+            <img src="img/Staff-Team/Midsted_.png" alt="Midsted_">
           </div>
           <div class="staff-info">
             <div class="staff-name-admin">Midsted_</div>
@@ -365,23 +366,24 @@ main{ flex:1; }
       <div class="staff-grid">
         <div class="staff-member">
           <div class="staff-avatar">
-            <img src="img/1vcb.png" alt="_hyfe">
+            <img src="img/Staff-Team/1vcb.png" alt="1vcb">
           </div>
           <div class="staff-info">
-            <div class="staff-name-dev">1vcb</div>
-            <div class="staff-role">Developer</div>
+            <div class="staff-name-dev">
+              <a href="https://1vcb.netlify.app" target="_blank" rel="noopener">1vcb</a>
+            </div>
+            <div class="staff-role">Developer & Web Developer</div>
           </div>
         </div>
       </div>
     </div>
+
   </section>
 </main>
 
 <footer class="footer">
-  <div class="server-line">PLAY.ELDERFLAME.NET</div>
+  <div class="server-line">MC.ELDERFLAME.NET</div>
   <div class="sub">© 2025 ElderFlameMC. Not affiliated with Mojang AB.</div>
-  <div class="credit">
-    <a href="1vcb.netlify.app/">Made by 1vcb</a>
 </footer>
 
 <script>
