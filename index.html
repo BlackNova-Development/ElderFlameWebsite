@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ElderFlameMC</title>
+
+<style>
+:root{
+  --bg1:#3a1d4d;
+  --bg2:#1a0f23;
+  --primary:#a855f7;
+  --secondary:#9333ea;
+  --text:#e6d9f2;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",system-ui,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:radial-gradient(circle at top left,var(--bg1),var(--bg2) 65%);
+  color:var(--text);
+  overflow-x:hidden;
+  position:relative;
+  scroll-padding-top:90px;
+}
+
+/* ===== STARS ===== */
+.stars{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+}
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:rgba(255,255,255,.15);
+  border-radius:50%;
+  animation:twinkle 3s infinite ease-in-out;
+}
+@keyframes twinkle{
+  0%,100%{opacity:.25}
+  50%{opacity:1}
+}
+
+/* ===== HEADER ===== */
+header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  backdrop-filter:blur(12px);
+  background:rgba(26,15,35,.9);
+  border-bottom:1px solid rgba(168,85,247,.3);
+}
+
+.header{
+  max-width:1300px;
+  margin:auto;
+  padding:16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  font-size:1.8rem;
+  font-weight:900;
+  color:var(--primary);
+  letter-spacing:2px;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:16px;
+}
+
+nav a{
+  color:var(--text);
+  text-decoration:none;
+  padding:8px 14px;
+  border-radius:999px;
+  font-weight:700;
+}
+
+nav a:hover,
+nav a.active{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+}
+
+.online{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  padding:8px 16px;
+  border-radius:999px;
+  font-weight:800;
+}
+
+/* ===== HERO ===== */
+.hero{
+  max-width:1300px;
+  margin:auto;
+  padding:120px 16px 60px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:60px;
+}
+
+.hero h1{
+  font-size:4.2rem;
+  color:#b97cff;
+  text-shadow:0 0 25px rgba(185,124,255,.6);
+}
+
+.hero p{
+  margin:20px 0 32px;
+  font-size:1.25rem;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 36px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:white;
+  font-weight:900;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+.hero img{
+  max-width:600px;
+  width:100%;
+  filter:drop-shadow(0 0 40px rgba(168,85,247,.65));
+}
+
+/* ===== SLIDER ===== */
+.slider{
+  width:100%;
+  height:360px;
+  position:relative;
+  overflow:hidden;
+  margin-top:120px;
+  margin-bottom:80px;
+}
+
+.slider-track{
+  display:flex;
+  height:100%;
+  transition:transform .6s ease;
+}
+
+.slide{
+  min-width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.slide-content{
+  max-width:1200px;
+  width:90%;
+  display:flex;
+  align-items:center;
+  gap:60px;
+}
+
+.slide-box{
+  width:260px;
+  height:260px;
+  border-radius:24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2.6rem;
+  font-weight:900;
+  color:#111;
+}
+
+.red{background:#e74c3c;}
+.green{background:#2ecc71;}
+.pink{background:#ff4fd8;}
+
+.slide-text{
+  font-size:2.6rem;
+  font-weight:800;
+  line-height:1.25;
+  color:rgba(230,217,242,.9);
+  max-width:700px;
+}
+
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:rgba(255,255,255,.12);
+  color:white;
+  border:none;
+  font-size:2rem;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.arrow.left{left:20px;}
+.arrow.right{right:20px;}
+
+.dots{
+  position:absolute;
+  bottom:16px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+}
+
+.dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:rgba(255,255,255,.3);
+}
+
+.dot.active{
+  background:var(--primary);
+}
+
+/* ===== NEWS SECTION ===== */
+.news-section{
+  padding:80px 0;
+  background:transparent;
+}
+
+.news-title{
+  text-align:center;
+  margin:0 0 40px;
+  font-size:3rem;
+  color:#b97cff;
+  text-shadow:0 0 18px rgba(185,124,255,.35);
+}
+
+.news-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+  max-width:1300px;
+  margin:0 auto;
+  padding:0 16px;
+}
+
+.news-card{
+  background:rgba(45,26,51,.6);
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.1);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.news-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 10px 30px rgba(0,0,0,.45);
+  border-color:rgba(168,85,247,.6);
+}
+
+.news-image{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  display:block;
+}
+
+.news-content{
+  padding:20px;
+}
+
+.news-content h3{
+  font-size:1.4rem;
+  margin-bottom:10px;
+  color:var(--primary);
+}
+
+.news-date{
+  font-size:.9rem;
+  color:#aaa;
+  margin-bottom:10px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.news-content p{
+  font-size:1rem;
+  line-height:1.5;
+  color:rgba(230,217,242,.9);
+}
+
+.view-all-wrap{
+  text-align:center;
+  margin-top:40px;
+}
+
+.view-all-btn{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:#fff;
+  padding:10px 26px;
+  font-size:.9rem;
+  font-weight:900;
+  text-decoration:none;
+  border-radius:999px;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  box-shadow:0 6px 18px rgba(168,85,247,.25);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.view-all-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(168,85,247,.35);
+}
+
+/* ===== FOOTER ===== */
+.footer{
+  background:rgba(26,15,35,.9);
+  border-top:2px solid rgba(168,85,247,.35);
+  padding:34px 16px;
+  text-align:center;
+  margin-top:90px;
+}
+
+.footer .server-line{
+  color:#eee;
+  font-weight:900;
+  letter-spacing:.7px;
+}
+
+.footer .sub{
+  margin-top:10px;
+  color:#aaa;
+  font-size:.95rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+  .hero img{
+    margin:0 auto;
+  }
+  .slide-content{
+    flex-direction:column;
+    text-align:center;
+  }
+  .slide-text{
+    font-size:1.9rem;
+  }
+}
+
+@media(max-width:480px){
+  .hero h1{font-size:2.8rem;}
+  .btn{width:100%; text-align:center;}
+  .slider{height:300px;}
+  .slide-text{font-size:1.6rem;}
+  nav ul{gap:10px;}
+  nav a{padding:8px 10px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<header>
+  <div class="header">
+    <div class="logo">ElderFlame</div>
+    <nav>
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="rules.html">Rules</a></li>
+        <li><a href="vote.html">Vote</a></li>
+        <li><a href="staff.html">Staff-Team</a></li>
+        <li><a href="store.elderflame.net">Store</a></li>
+      </ul>
+    </nav>
+    <div class="online">234 Users Online</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Welcome to ElderFlame!</h1>
+    <p>We're a Towny server focused on high-quality gameplay with a vibrant, welcoming community.</p>
+    <a class="btn" href="#">JOIN 26 PLAYERS ONLINE!</a>
+  </div>
+
+  <img
+    src="https://cdn.discordapp.com/attachments/1148431536648110200/1455376883721044110/image.png?ex=695480d8&is=69532f58&hm=00ea1f903c077550d3d2e34454400bf53fd8e0ad530048775f689e6ca62b8bda&"
+    alt="ElderFlame Logo"
+  />
+</section>
+
+<section class="slider">
+  <button class="arrow left" id="prev" aria-label="Previous slide">‹</button>
+  <button class="arrow right" id="next" aria-label="Next slide">›</button>
+
+  <div class="slider-track" id="track">
+
+    <div class="slide">
+      <div class="slide-content">
+        <div class="slide-box pink">Art</div>
+        <div class="slide-text">
+          Experiment with ArtMap and create your own artworks to share with others!
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-content">
+        <div class="slide-box red">Hoarder</div>
+        <div class="slide-text">
+          Sell items to the Hoarder and compete with others for the top positions!
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-content">
+        <div class="slide-box green">Build</div>
+        <div class="slide-text">
+          Join our building competitions and show off your creativity with themed builds!
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="dots" id="dots"></div>
+</section>
+
+<section class="news-section">
+  <h2 class="news-title">Latest News</h2>
+
+  <div class="news-grid">
+    <div class="news-card">
+      <img class="news-image" src="https://placehold.co/600x400/9b59b6/ffffff?text=Staff+Promotions" alt="Staff Promotions">
+      <div class="news-content">
+        <h3>Staff Promotions & Updates - 12/27</h3>
+        <div class="news-date">📅 12/27</div>
+        <p>We're excited to announce some well-deserved staff updates and promotions! Congratulations to ... on their promotion to Moderator! We...</p>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <img class="news-image" src="https://placehold.co/600x400/ffeb3b/000000?text=Announcements" alt="Announcements">
+      <div class="news-content">
+        <h3>General Announcements - 12/16</h3>
+        <div class="news-date">📅 12/16</div>
+        <p>This announcement is going to cover a couple of things, although we'll mainly be focused on ranks. 🏆 Ranks Update This post comes with the addition of two new...</p>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <img class="news-image" src="https://placehold.co/600x400/2ecc71/ffffff?text=Building+Comp" alt="Building Competition">
+      <div class="news-content">
+        <h3>Luma's Building Competition - 12/12</h3>
+        <div class="news-date">📅 12/12</div>
+        <p>Hi, everyone! I'm thrilled to announce our Winter Build Competition! 🎄 Theme: Winter Wonderland 🗓️ Event Deadline The competition will officially close on December 29th. All...</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="view-all-wrap">
+    <a href="#" class="view-all-btn">View all articles</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="server-line">PLAY.ELDERFLAME.NET</div>
+  <div class="sub">© 2025 ElderFlameMC. Not affiliated with Mojang AB.</div>
+</footer>
+
+<script>
+/* Stars */
+const stars=document.getElementById("stars");
+for(let i=0;i<60;i++){
+  const s=document.createElement("div");
+  s.className="star";
+  s.style.left=Math.random()*100+"%";
+  s.style.top=Math.random()*100+"%";
+  s.style.animationDelay=Math.random()*3+"s";
+  stars.appendChild(s);
+}
+
+/* Slider */
+const track=document.getElementById("track");
+const slides=[...track.children];
+const dots=document.getElementById("dots");
+let index=0;
+
+slides.forEach((_,i)=>{
+  const d=document.createElement("div");
+  d.className="dot"+(i===0?" active":"");
+  dots.appendChild(d);
+  d.addEventListener("click",()=>{
+    index=i;
+    render();
+  });
+});
+
+function render(){
+  track.style.transform=`translateX(-${index*100}%)`;
+  [...dots.children].forEach((d,i)=>d.classList.toggle("active",i===index));
+}
+
+document.getElementById("next").onclick=()=>{
+  index=(index+1)%slides.length;
+  render();
+};
+
+document.getElementById("prev").onclick=()=>{
+  index=(index-1+slides.length)%slides.length;
+  render();
+};
+
+setInterval(()=>{
+  index=(index+1)%slides.length;
+  render();
+},6000);
+</script>
+
+</body>
+</html>

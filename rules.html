@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ElderFlameMC • Rules</title>
+
+<style>
+:root{
+  --bg1:#3a1d4d;
+  --bg2:#1a0f23;
+  --primary:#a855f7;
+  --secondary:#9333ea;
+  --text:#e6d9f2;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",system-ui,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:radial-gradient(circle at top left,var(--bg1),var(--bg2) 65%);
+  color:var(--text);
+  overflow-x:hidden;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+}
+
+/* ===== STARS ===== */
+.stars{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+}
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:rgba(255,255,255,.15);
+  border-radius:50%;
+  animation:twinkle 3s infinite ease-in-out;
+}
+@keyframes twinkle{
+  0%,100%{opacity:.25}
+  50%{opacity:1}
+}
+
+/* ===== HEADER ===== */
+header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  backdrop-filter:blur(12px);
+  background:rgba(26,15,35,.9);
+  border-bottom:1px solid rgba(168,85,247,.3);
+}
+
+.header{
+  max-width:1300px;
+  margin:auto;
+  padding:16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  font-size:1.8rem;
+  font-weight:900;
+  color:var(--primary);
+  letter-spacing:2px;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:16px;
+}
+
+nav a{
+  color:var(--text);
+  text-decoration:none;
+  padding:8px 14px;
+  border-radius:999px;
+  font-weight:700;
+}
+
+nav a:hover,
+nav a.active{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+}
+
+.online{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  padding:8px 16px;
+  border-radius:999px;
+  font-weight:800;
+}
+
+/* ===== RULES SECTION ===== */
+.rules-section{
+  max-width:1300px;
+  margin:80px auto 0;
+  padding:0 16px;
+  flex:1;
+}
+
+.rules-container{
+  display:flex;
+  gap:30px;
+}
+
+.rules-sidebar{
+  width:260px;
+  background:rgba(45,26,51,.6);
+  border-radius:16px;
+  padding:24px;
+  border:1px solid rgba(255,255,255,.1);
+}
+
+.rules-sidebar h3{
+  color:var(--primary);
+  font-size:1.8rem;
+  margin-bottom:20px;
+  text-align:center;
+}
+
+.rules-sidebar ul{
+  list-style:none;
+}
+
+.rules-sidebar li{
+  margin-bottom:12px;
+  padding:10px 14px;
+  border-radius:8px;
+  transition:all .2s ease;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.rules-sidebar li:hover,
+.rules-sidebar li:first-child{
+  background:rgba(168,85,247,.2);
+  color:var(--primary);
+  border-left:4px solid var(--primary);
+}
+
+.rules-content{
+  flex:1;
+  background:rgba(45,26,51,.6);
+  border-radius:16px;
+  padding:30px;
+  border:1px solid rgba(255,255,255,.1);
+}
+
+.rules-content h1{
+  color:var(--primary);
+  font-size:2rem;
+  margin-bottom:20px;
+  position:relative;
+}
+
+.rules-content h1::after{
+  content:'';
+  position:absolute;
+  bottom:-8px;
+  left:0;
+  width:60px;
+  height:3px;
+  background:var(--primary);
+  border-radius:2px;
+}
+
+.rules-content p{
+  margin:15px 0;
+  line-height:1.6;
+}
+
+.rules-content h2{
+  color:var(--primary);
+  font-size:1.4rem;
+  margin:25px 0 15px;
+}
+
+.rules-content ul{
+  margin:15px 0;
+  padding-left:25px;
+}
+
+.rules-content li{
+  margin:8px 0;
+  line-height:1.5;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+  background:rgba(26,15,35,.9);
+  border-top:2px solid rgba(168,85,247,.35);
+  padding:34px 16px;
+  text-align:center;
+  margin-top:40px;
+  width:100%;
+  box-sizing:border-box;
+}
+
+.footer > div:first-child{
+  color:#eee;
+  font-weight:900;
+  letter-spacing:.7px;
+}
+
+.footer .sub{
+  margin-top:10px;
+  color:#aaa;
+  font-size:.95rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .rules-container{
+    flex-direction:column;
+  }
+  
+  .rules-sidebar{
+    width:100%;
+  }
+  
+  .rules-content{
+    width:100%;
+  }
+}
+
+@media(max-width:480px){
+  .header{
+    padding:12px;
+  }
+  
+  nav ul{
+    gap:8px;
+  }
+  
+  nav a{
+    padding:6px 10px;
+    font-size:.9rem;
+  }
+  
+  .rules-section{
+    margin:60px auto 0;
+    padding:0 12px;
+  }
+  
+  .rules-sidebar{
+    padding:16px;
+  }
+  
+  .rules-content{
+    padding:20px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<header>
+  <div class="header">
+    <div class="logo">ElderFlame</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="rules.html">Rules</a></li>
+        <li><a href="vote.html">Vote</a></li>
+        <li><a href="staff.html">Staff-Team</a></li>
+        <li><a href="store.elderflame.net">Store</a></li>
+      </ul>
+    </nav>
+    <div class="online">234 Users Online</div>
+  </div>
+</header>
+
+<!-- Spacer to respect hero height -->
+<section style="height:120px"></section>
+
+<section class="rules-section">
+  <div class="rules-container">
+
+    <aside class="rules-sidebar">
+      <h3>Rules</h3>
+      <ul>
+        <li>Overview</li>
+        <li>Conduct</li>
+        <li>Gameplay</li>
+        <li>Store</li>
+        <li>Policies</li>
+      </ul>
+    </aside>
+
+    <div class="rules-content">
+      <h1>ELDERFLAME'S RULES</h1>
+      <p>Players are expected to follow all rules to ensure a healthy and enjoyable community.</p>
+
+      <h2>Punishment Policy</h2>
+      <ul>
+        <li>Punishments are handled on a case-by-case basis.</li>
+        <li>Evading punishments is strictly prohibited.</li>
+        <li>Staff decisions are final.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div>PLAY.ELDERFLAME.NET</div>
+  <div class="sub">© 2025 ElderFlameMC. Not affiliated with Mojang AB.</div>
+</footer>
+
+<script>
+// Create stars
+const stars=document.getElementById("stars");
+for(let i=0;i<60;i++){
+  const s=document.createElement("div");
+  s.className="star";
+  s.style.left=Math.random()*100+"%";
+  s.style.top=Math.random()*100+"%";
+  s.style.animationDelay=Math.random()*3+"s";
+  stars.appendChild(s);
+}
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,1 @@
+const s=document.getElementById("stars");for(let i=0;i<80;i++){let d=document.createElement("div");d.style.position="absolute";d.style.width="2px";d.style.height="2px";d.style.background="rgba(255,255,255,.2)";d.style.left=Math.random()*100+"%";d.style.top=Math.random()*100+"%";s.appendChild(d)}
