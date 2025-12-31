@@ -206,26 +206,6 @@ nav a.active{
   max-width:700px;
 }
 
-.arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  background:rgba(255,255,255,.12);
-  color:white;
-  border:none;
-  font-size:2rem;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.arrow.left{left:20px;}
-.arrow.right{right:20px;}
-
 .dots{
   position:absolute;
   bottom:16px;
@@ -422,9 +402,6 @@ nav a.active{
 </section>
 
 <section class="slider">
-  <button class="arrow left" id="prev" aria-label="Previous slide">‹</button>
-  <button class="arrow right" id="next" aria-label="Next slide">›</button>
-
   <div class="slider-track" id="track">
 
     <div class="slide">
@@ -529,16 +506,6 @@ function render(){
   track.style.transform=`translateX(-${index*100}%)`;
   [...dots.children].forEach((d,i)=>d.classList.toggle("active",i===index));
 }
-
-document.getElementById("next").onclick=()=>{
-  index=(index+1)%slides.length;
-  render();
-};
-
-document.getElementById("prev").onclick=()=>{
-  index=(index-1+slides.length)%slides.length;
-  render();
-};
 
 setInterval(()=>{
   index=(index+1)%slides.length;
